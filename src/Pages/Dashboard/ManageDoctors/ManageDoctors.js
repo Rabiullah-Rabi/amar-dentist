@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import ConfirmationModal from "../../Shared/ConfiramtionModal/ConfirmationModal";
 
 const ManageDoctors = () => {
-  const url = `http://localhost:5000/doctors`;
+  const url = ` https://doctors-portal-server-ivory.vercel.app/doctors`;
   const { data: doctors = [], refetch } = useQuery({
     queryKey: ["doctors"],
     queryFn: async () => {
@@ -23,7 +23,7 @@ const ManageDoctors = () => {
     setDeletingDoctor(null);
   };
   const handleDelete = (doctor) => {
-    fetch(`http://localhost:5000/doctors/${doctor._id}`, {
+    fetch(` https://doctors-portal-server-ivory.vercel.app/doctors/${doctor._id}`, {
       method: "delete",
       headers: {
         authorization: `bearer ${localStorage.getItem("accessToken")}`,

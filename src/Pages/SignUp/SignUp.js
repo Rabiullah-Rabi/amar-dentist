@@ -24,7 +24,6 @@ const SignUp = () => {
     createUser(data.email, data.password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         toast("User Created Successfully.");
         const userInfo = {
           displayName: data.name,
@@ -42,7 +41,7 @@ const SignUp = () => {
   };
   const saveUser = (name, email) => {
     const user = { name, email };
-    fetch("http://localhost:5000/users", {
+    fetch(" https://doctors-portal-server-ivory.vercel.app/users", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
@@ -53,7 +52,7 @@ const SignUp = () => {
       });
   };
   // const getUserToken = (email) => {
-  //   fetch(`http://localhost:5000/jwt?email=${email}`)
+  //   fetch(` https://doctors-portal-server-ivory.vercel.app/jwt?email=${email}`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       if (data.accessToken) {

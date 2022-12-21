@@ -17,7 +17,7 @@ const AvailableAppointments = ({ selectedDate }) => {
     queryKey: ["appointmentoptions", date],
     queryFn: async () => {
       const res = await fetch(
-        `http://localhost:5000/appointmentoptions?date=${date}`
+        ` https://doctors-portal-server-ivory.vercel.app/appointmentoptions?date=${date}`
       );
       const data = await res.json();
       return data;

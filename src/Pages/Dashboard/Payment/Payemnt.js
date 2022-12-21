@@ -9,9 +9,9 @@ const Payment = () => {
   const booking = useLoaderData();
   const navigation = useNavigation();
   const { appointmentDate, treatment, patient, slot, price } = booking;
-  if (navigation.state === "loading") {
-    return <Loading></Loading>;
-  }
+  // if (navigation.state === "loading") {
+  //   return <Loading></Loading>;
+  // }
   return (
     <div>
       <div>
