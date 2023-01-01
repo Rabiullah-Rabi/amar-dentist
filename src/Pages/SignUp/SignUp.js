@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { useToken } from "../../hooks/useToken";
 
@@ -16,6 +16,10 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [createdEmail, setCreatedEmail] = useState("");
   const [token] = useToken(createdEmail);
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/";
+
   if (token) {
     navigate("/");
   }
@@ -31,6 +35,7 @@ const SignUp = () => {
         updateUser(userInfo)
           .then(() => {
             saveUser(data.name, data.email);
+            navigate(from, { replace: true });
           })
           .catch((err) => console.log(err));
       })

@@ -27,6 +27,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         setLoginUserEmail(data.email);
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
